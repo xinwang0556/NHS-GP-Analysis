@@ -75,3 +75,5 @@ NHS_GP_Distribution_Report.pbix: Power BI project file
 
 /images/: Screenshots of visualizations
 
+🙋‍♀️ Author
+Made by Xin Wang – aspiring NHS data analyst
