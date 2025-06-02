@@ -41,6 +41,7 @@ DIVIDE(
     SUM('april_2024_attendances'[registered_patients]),
     DISTINCTCOUNT('april_2024_attendances'[practice_code])
 )
+```
 📊 Visualizations
 1. GP Count by Region
 Bar chart showing the number of GP practices in each region.
