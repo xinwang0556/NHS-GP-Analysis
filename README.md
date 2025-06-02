@@ -2,42 +2,43 @@
  A data analysis project exploring NHS GP workloads by region
 # NHS GP Distribution Analysis (April 2024)
 
-This project analyzes the regional distribution of General Practitioners (GPs) across NHS regions in England and evaluates service pressure based on the average number of registered patients per GP.
+This project analyzes the regional distribution of General Practitioners (GPs) across NHS regions in England using April 2024 data. The goal is to understand service pressure based on the average number of patients served by each GP practice.
 
 ---
 
 ## 📌 Project Goals
 
 - Visualize the number of GP practices in each NHS region
-- Calculate and compare the average number of patients each GP serves per region
-- Identify potential regional disparities in healthcare resource allocation
+- Calculate the average number of registered patients per GP
+- Identify regional disparities in GP service capacity
 
 ---
 
-## 🗂️ Dataset
+## 📁 Dataset
 
-**Source**: [NHS Digital – April 2024 GP Practice data](#)  
-**File Used**: `april_2024_attendances.csv`  
+- **Source**: NHS GP Practice Data, April 2024
+- **File Used**: `april_2024_attendances.csv`
 
-| Column Name          | Description                                 |
-|----------------------|---------------------------------------------|
-| `region`             | NHS administrative region                  |
-| `practice_code`      | Unique code per GP practice                |
-| `registered_patients`| Number of patients registered at the practice |
+| Column Name          | Description                                  |
+|----------------------|----------------------------------------------|
+| `region`             | NHS region name                              |
+| `practice_code`      | Unique GP practice code                      |
+| `registered_patients`| Number of patients registered at each practice |
 
 ---
 
-## 🔧 Data Processing
+## 🧪 Data Processing (Power BI)
 
-- Removed missing values from `region`, `practice_code`, and `registered_patients`
-- Aggregated:
-  - GP count per region using `DISTINCTCOUNT(practice_code)`
-  - Total registered patients using `SUM(registered_patients)`
-- Created a calculated measure:
+- Removed rows with missing `region`, `practice_code`, or `registered_patients`
+- Aggregated data per region:
+  - Total GP practices: `DISTINCTCOUNT(practice_code)`
+  - Total patients: `SUM(registered_patients)`
+- Created a measure to calculate patient load per GP:
 
 ```dax
 Patients_per_GP = 
 DIVIDE(
-    SUM(registered_patients),
-    DISTINCTCOUNT(practice_code)
+    SUM('april_2024_attendances'[registered_patients]),
+    DISTINCTCOUNT('april_2024_attendances'[practice_code])
 )
+
