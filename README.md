@@ -41,4 +41,37 @@ DIVIDE(
     SUM('april_2024_attendances'[registered_patients]),
     DISTINCTCOUNT('april_2024_attendances'[practice_code])
 )
+📊 Visualizations
+1. GP Count by Region
+Bar chart showing the number of GP practices in each region.
+
+
+2. Patients per GP by Region
+Bar chart showing the average number of registered patients per GP.
+
+
+3. Regional Comparison Table (Colored)
+Table with conditional formatting to highlight regions with the highest patient load per GP.
+
+
+📈 Key Findings
+North East and Yorkshire has the highest GP workload (~10,182 patients per GP), indicating possible strain.
+
+Midlands follows closely with ~10,084 patients per GP.
+
+North West has relatively lower GP load (~7,243 patients per GP), suggesting more balanced care capacity.
+
+💡 Future Improvements
+Add time series analysis (multi-month data)
+
+Compare with A&E wait times and other NHS KPIs
+
+Build interactive dashboards with slicers and filters
+
+📎 Files
+april_2024_attendances.csv: NHS data file
+
+NHS_GP_Distribution_Report.pbix: Power BI project file
+
+/images/: Screenshots of visualizations
 
